@@ -1,0 +1,51 @@
+[package]
+name = "neurorights_kernel"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Non-derogable neurorights invariants compiled to machine-code enforcement"
+
+[dependencies]
+# Workspace dependencies
+organic_cpu_guard = { path = "../organic_cpu_guard" }
+biophysical_envelopes = { path = "../biophysical_envelopes" }
+did_sovereignty = { path = "../did_sovereignty" }
+
+# Cryptography
+did-key.workspace = true
+ed25519-dalek.workspace = true
+sha3.workspace = true
+
+# Async & Serialization
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+hex.workspace = true
+
+# Logging
+tracing.workspace = true
+
+# Error handling
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+criterion = "0.5"
+
+[features]
+default = ["enforcement"]
+enforcement = []
+formal-verification = ["kani"]
+reality-os-integration = []
+legal-compliance = ["ca_sb1223", "co_hb241058"]
+ca_sb1223 = []
+co_hb241058 = []
+
+[[bin]]
+name = "rights_validator"
+path = "src/bin/validator.rs"
+
+[[bin]]
+name = "policy_compiler"
+path = "src/bin/compiler.rs"

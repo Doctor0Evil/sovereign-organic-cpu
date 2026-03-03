@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EvidenceBundle",
+  "description": "10-tag EvidenceBundle schema for biophysical AI-chat correctness and cybernetic evolution",
+  "type": "object",
+  "required": [
+    "sequence_id",
+    "timestamp",
+    "did",
+    "cpu_instance_id",
+    "evidence_tags",
+    "roh_snapshot",
+    "rod_snapshot",
+    "lifeforce_band",
+    "eco_impact_delta",
+    "neurorights_verified",
+    "signature"
+  ],
+  "properties": {
+    "sequence_id": {
+      "type": "string",
+      "description": "Unique sequence identifier (e.g., 0xroh01a3)",
+      "pattern": "^0x[a-f0-9]{8}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of bundle creation"
+    },
+    "did": {
+      "type": "string",
+      "description": "Bostrom DID of the augmented citizen",
+      "pattern": "^did:bostrom:.*$"
+    },
+    "cpu_instance_id": {
+      "type": "string",
+      "description": "OrganicCPU instance identifier"
+    },
+    "evidence_tags": {
+      "type": "array",
+      "description": "10 independently-anchored evidence tags",
+      "items": {
+        "type": "object",
+        "required": ["hex_anchor", "tag_name", "value", "verified"],
+        "properties": {
+          "hex_anchor": {
+            "type": "string",
+            "pattern": "^0x[a-f0-9]{8}$"
+          },
+          "tag_name": {
+            "type": "string",
+            "enum": [
+              "brain_power_envelope",
+              "thermal_safety",
+              "cytokine_thresholds",
+              "cognitive_load_markers",
+              "ml_duty_cycle",
+              "neurorights_clauses",
+              "organiccpu_scheduler_limits",
+              "eco_monotonicity",
+              "device_specific_corridor",
+              "clinical_grade_evidence"
+            ]
+          },
+          "value": {
+            "oneOf": [
+              {"type": "number"},
+              {"type": "string"},
+              {"type": "boolean"}
+            ]
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "validator": {
+            "type": "string"
+          }
+        }
+      },
+      "minItems": 10,
+      "maxItems": 10
+    },
+    "roh_snapshot": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 0.3,
+      "description": "Risk of Harm at time of bundle creation"
+    },
+    "rod_snapshot": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Risk of Danger at time of bundle creation"
+    },
+    "lifeforce_band": {
+      "type": "string",
+      "enum": ["Baseline", "SoftWarn", "HardStop"]
+    },
+    "eco_impact_delta": {
+      "type": "number",
+      "description": "Environmental impact delta (must be ≤ 0.0 for monotonicity)"
+    },
+    "neurorights_verified": {
+      "type": "boolean",
+      "description": "All neurorights invariants verified"
+    },
+    "signature": {
+      "type": "string",
+      "description": "DID-signed cryptographic signature"
+    },
+    "anchor_hash": {
+      "type": "string",
+      "description": "Optional Organichain/Bostrom anchor hash"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+[package]
+name = "organic_cpu_guard"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "OrganicCPU guard crates for all neural interactions, BCI routing, and device behavior enforcement"
+
+[dependencies]
+# Workspace dependencies
+biophysical_envelopes = { path = "../biophysical_envelopes" }
+neurorights_kernel = { path = "../neurorights_kernel" }
+did_sovereignty = { path = "../did_sovereignty" }
+
+# Cryptography
+did-key.workspace = true
+ed25519-dalek.workspace = true
+sha3.workspace = true
+
+# Async
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+# Telemetry
+nalgebra.workspace = true
+tracing.workspace = true
+
+# Error handling
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+criterion = "0.5"
+
+[features]
+default = ["host-local"]
+host-local = []
+formal-verification = ["kani"]
+reality-os-integration = []
+
+[[bin]]
+name = "guard_validator"
+path = "src/bin/validator.rs"
+
+[[bin]]
+name = "guard_scheduler"
+path = "src/bin/scheduler.rs"

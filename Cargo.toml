@@ -1,0 +1,59 @@
+[workspace]
+members = [
+    "crates/organic_cpu_guard",
+    "crates/biophysical_envelopes",
+    "crates/neurorights_kernel",
+    "crates/aln_protocol",
+    "crates/did_sovereignty",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0-alpha"
+edition = "2024"
+authors = ["Doctor0Evil"]
+license = "MIT WITH Non-Commercial-Neural-Data-Clause"
+repository = "https://github.com/Doctor0Evil/sovereign-organic-cpu"
+keywords = ["neurorights", "organic-cpu", "biophysical", "sovereignty", "DID"]
+categories = ["security", "embedded", "science"]
+
+[workspace.dependencies]
+# Cryptography
+did-key = "0.3"
+ed25519-dalek = "2.1"
+sha3 = "0.10"
+bls12_381 = "0.8"
+
+# Biophysical telemetry
+nalgebra = "0.33"
+statrs = "0.17"
+ndarray = "0.16"
+
+# Async & networking
+tokio = { version = "1.36", features = ["full"] }
+libp2p = "0.54"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Formal verification (phase 2)
+kani = "0.50"
+proptest = "1.4"
+
+# Logging & audit
+tracing = "0.1"
+tracing-subscriber = "0.3"
+hex = "0.4"
+
+# Error handling
+thiserror = "2.0"
+anyhow = "1.0"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+debug = 2
+opt-level = 0

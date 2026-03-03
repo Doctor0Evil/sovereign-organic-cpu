@@ -1,0 +1,36 @@
+[package]
+name = "guard_verification_tests"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+organic_cpu_guard = { path = "../../crates/organic_cpu_guard" }
+biophysical_envelopes = { path = "../../crates/biophysical_envelopes" }
+neurorights_kernel = { path = "../../crates/neurorights_kernel" }
+did_sovereignty = { path = "../../crates/did_sovereignty" }
+
+tokio = { version = "1.36", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+proptest = "1.4"
+criterion = "0.5"
+
+[[test]]
+name = "roh_guard_tests"
+path = "tests/roh_guard_tests.rs"
+harness = true
+
+[[test]]
+name = "neurorights_guard_tests"
+path = "tests/neurorights_guard_tests.rs"
+harness = true
+
+[[test]]
+name = "envelope_integration_tests"
+path = "tests/envelope_integration_tests.rs"
+harness = true
+
+[[bench]]
+name = "guard_benchmark"
+harness = false

@@ -1,0 +1,54 @@
+[package]
+name = "did_sovereignty"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "DID-bound boot chains, EVOLVE tokens, and sovereign identity management"
+
+[dependencies]
+# Workspace dependencies
+organic_cpu_guard = { path = "../organic_cpu_guard" }
+biophysical_envelopes = { path = "../biophysical_envelopes" }
+neurorights_kernel = { path = "../neurorights_kernel" }
+
+# Cryptography
+did-key.workspace = true
+ed25519-dalek.workspace = true
+sha3.workspace = true
+bls12_381.workspace = true
+hex.workspace = true
+
+# Async & Serialization
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+# Logging
+tracing.workspace = true
+
+# Error handling
+thiserror.workspace = true
+
+# Time handling
+chrono = "0.4"
+
+[dev-dependencies]
+proptest.workspace = true
+criterion = "0.5"
+
+[features]
+default = ["sovereign-identity"]
+sovereign-identity = []
+bostrom-chain = []
+organichain = []
+formal-verification = ["kani"]
+reality-os-integration = []
+
+[[bin]]
+name = "did_bootstrap"
+path = "src/bin/bootstrap.rs"
+
+[[bin]]
+name = "evolve_token_minter"
+path = "src/bin/minter.rs"

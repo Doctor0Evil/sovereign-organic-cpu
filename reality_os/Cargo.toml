@@ -1,0 +1,54 @@
+[package]
+name = "reality_os_integration"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "reality.os kernel integration layer for OrganicCPU guards and neurorights enforcement"
+
+[dependencies]
+# Workspace dependencies
+organic_cpu_guard = { path = "../crates/organic_cpu_guard" }
+biophysical_envelopes = { path = "../crates/biophysical_envelopes" }
+neurorights_kernel = { path = "../crates/neurorights_kernel" }
+aln_protocol = { path = "../crates/aln_protocol" }
+did_sovereignty = { path = "../crates/did_sovereignty" }
+
+# Kernel bindings
+libc = "0.2"
+nix = "0.27"
+
+# Cryptography
+ed25519-dalek.workspace = true
+sha3.workspace = true
+hex.workspace = true
+
+# Async & Serialization
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+# Logging
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+# Error handling
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+
+[features]
+default = ["kernel-module"]
+kernel-module = []
+syscall-wrapper = []
+secure-boot = []
+audit-log = []
+
+[[bin]]
+name = "reality_kernel_module"
+path = "src/bin/kernel_module.rs"
+
+[[bin]]
+name = "syscall_guard"
+path = "src/bin/syscall_guard.rs"

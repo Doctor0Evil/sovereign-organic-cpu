@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TenTagEvidenceTemplate",
+  "description": "Standard 10-tag evidence pattern for biophysical AI-chat correctness",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hex_anchor", "tag_name", "constraint", "source"]
+      },
+      "minItems": 10,
+      "maxItems": 10
+    }
+  },
+  "examples": [
+    {
+      "tags": [
+        {
+          "hex_anchor": "0xpow20e7",
+          "tag_name": "brain_power_envelope",
+          "constraint": "≤20W cortical CMRO2",
+          "source": "PMC11850306"
+        },
+        {
+          "hex_anchor": "0xtherm3c",
+          "tag_name": "thermal_safety",
+          "constraint": "ΔT ≤ 0.3–0.5°C",
+          "source": "PMC12941142"
+        },
+        {
+          "hex_anchor": "0xcyt0a9",
+          "tag_name": "cytokine_thresholds",
+          "constraint": "IL-6 < 10, CRP < 5",
+          "source": "mapping_hepatic_alt_ast_thresh"
+        },
+        {
+          "hex_anchor": "0xcload7f",
+          "tag_name": "cognitive_load_markers",
+          "constraint": "EEG alpha/gamma ratios",
+          "source": "quantified_learning_ai_assiste"
+        },
+        {
+          "hex_anchor": "0xlyaduty",
+          "tag_name": "ml_duty_cycle",
+          "constraint": "Lyapunov V(t+1) ≤ V(t)",
+          "source": "searching_rust_verified_lyapun"
+        },
+        {
+          "hex_anchor": "0xrights1c",
+          "tag_name": "neurorights_clauses",
+          "constraint": "rollbackanytime, noraweegexport",
+          "source": "scraped_april_2025"
+        },
+        {
+          "hex_anchor": "0xroh025c",
+          "tag_name": "organiccpu_scheduler_limits",
+          "constraint": "RoH ≤ 0.25–0.3",
+          "source": "rod_risk_of_danger"
+        },
+        {
+          "hex_anchor": "0xeco9b2",
+          "tag_name": "eco_monotonicity",
+          "constraint": "CEIM/NanoKarma non-regressive",
+          "source": "what_new_files_will_improve"
+        },
+        {
+          "hex_anchor": "0xdevcorr",
+          "tag_name": "device_specific_corridor",
+          "constraint": "BCI/EEG thermodynamic envelope",
+          "source": "uncovering_neural_rope_rollbac"
+        },
+        {
+          "hex_anchor": "0xclin10a",
+          "tag_name": "clinical_grade_evidence",
+          "constraint": "Guideline/trial cluster",
+          "source": "PMC12500557"
+        }
+      ]
+    }
+  ]
+}

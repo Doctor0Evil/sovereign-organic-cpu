@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ALNShard",
+  "description": "ALN shard schema for neurorights policy and biophysical envelope binding",
+  "type": "object",
+  "required": [
+    "shard_id",
+    "shard_type",
+    "did",
+    "content_hash",
+    "signature",
+    "timestamp"
+  ],
+  "properties": {
+    "shard_id": {
+      "type": "string",
+      "pattern": "^aln:[a-z0-9.]+$"
+    },
+    "shard_type": {
+      "type": "string",
+      "enum": [
+        "neuro.constitution",
+        "bio.safety.envelope.citizen",
+        "neuro.data.profile.v1",
+        "bioscale.upgrade.packet.v1.aln",
+        "lifeforce.brain.envelope"
+      ]
+    },
+    "did": {
+      "type": "string",
+      "pattern": "^did:bostrom:.*$"
+    },
+    "content_hash": {
+      "type": "string"
+    },
+    "content": {
+      "type": "object"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_bundle_ref": {
+      "type": "string"
+    },
+    "reversal_conditions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "rollback_path": {
+      "type": "string"
+    }
+  }
+}

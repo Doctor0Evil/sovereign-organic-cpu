@@ -1,0 +1,42 @@
+[package]
+name = "biophysical_envelopes"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Biophysical envelope calculations for RoH, ROD, LifeforceBand, and EcoImpactScore"
+
+[dependencies]
+# Workspace dependencies
+nalgebra.workspace = true
+statrs.workspace = true
+ndarray.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
+hex.workspace = true
+
+# Time handling
+chrono = "0.4"
+
+# Random number generation (for calibrated sampling)
+rand = "0.8"
+
+[dev-dependencies]
+proptest.workspace = true
+criterion = "0.5"
+
+[features]
+default = ["telemetry"]
+telemetry = []
+formal-verification = ["kani"]
+reality-os-integration = []
+
+[[bin]]
+name = "envelope_calibrator"
+path = "src/bin/calibrator.rs"
+
+[[bench]]
+name = "roh_benchmark"
+harness = false

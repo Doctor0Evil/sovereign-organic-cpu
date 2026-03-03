@@ -71,3 +71,77 @@ The Sovereign Organic CPU framework implements a tripartite stack for host-sover
 ---
 
 ## Data Flow Diagram
+
+┌─────────────────────────────────────────────────────────────┐
+│ EXTERNAL DOMAIN │
+│ (ROS2, BLE, libp2p, IPFS, Organichain, Bostrom) │
+└─────────────────────────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ ALN PROTOCOL GATEWAY │
+│ (Legacy shims, corridor-safe translation) │
+└─────────────────────────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ REALITY.OS KERNEL LAYER │
+│ (Syscall wrapper, device classifier, audit log) │
+└─────────────────────────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ ORGANICCPU GUARD CORE │
+│ (RoH/ROD checks, neurorights verification, veto power) │
+└─────────────────────────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ BIOPHYSICAL ENVELOPES │
+│ (EEG, HRV, thermal, cytokines, LifeforceBand) │
+└─────────────────────────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────┐
+│ INNER DOMAIN (HOST-ONLY) │
+│ (BCI, EEG, nanoswarm, neural interfaces) │
+└─────────────────────────────────────────────────────────────┘
+
+---
+
+## Security Guarantees
+
+| Guarantee | Enforcement Layer | Verification Method |
+|-----------|-------------------|---------------------|
+| No raw neural export | ALN Protocol + Guard | Packet inspection |
+| RoH never exceeds 0.3 | Biophysical Envelopes | Lyapunov stability proof |
+| Neurorights cannot be removed | Kernel Invariants | Compile-time checks |
+| Identity cannot be downgraded | DID Sovereignty | Boot chain verification |
+| Eco-impact non-regressive | EcoImpactScore | Monotonicity verification |
+| All upgrades proposal-only | EVOLVE Tokens | Token consumption audit |
+
+---
+
+## Evidence Bundle Requirement
+
+Every evolution, upgrade, or high-impact decision requires a 10-tag EvidenceBundle:
+0xpow20e7 → Brain Power Envelope (≤20W)
+0xtherm3c → Thermal Safety (ΔT ≤ 0.3–0.5°C)
+0xcyt0a9 → Cytokine Thresholds (IL-6, CRP)
+0xcload7f → Cognitive Load (EEG ratios)
+0xlyaduty → ML Duty Cycle (Lyapunov)
+0xrights1c → Neurorights Clauses
+0xroh025c → OrganicCPU Scheduler (RoH ≤ 0.3)
+0xeco9b2 → Eco-Monotonicity
+0xdevcorr → Device Corridor
+0xclin10a → Clinical Evidence
+
+
+---
+
+## References
+
+- [RoH/RoD Specification](../../rod-risk-of-danger-like-the-ri-OZyIF0qkTuiccVW5RzV15g.md)
+- [Neural Rope Rollback](../../uncovering-neural-rope-rollbac-tZuN_anrQKiVnC.kkQ.jlw.md)
+- [Quantified Learning AI](../../quantified-learning-ai-assiste-eVhq_gzlTsCSgIADCRbtnA.md)
+- [Reality.os Repository](https://github.com/Doctor0Evil/Reality.os)
